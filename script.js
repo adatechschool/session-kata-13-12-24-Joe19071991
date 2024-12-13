@@ -17,7 +17,12 @@ function isValidGuess(guess) {
 // console.log(isValidGuess(["rouge"])); // false
 
 function isCorrectCombinaison(guess) {
-  return guess.every((color, index) => color === secretCombinaison[index]);
+  for (let i = 0; i < guess.length; i++) {
+    if (guess[i] !== secretCombinaison[i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 console.log(isCorrectCombinaison(["rouge", "bleu"])); // true
