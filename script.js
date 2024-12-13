@@ -1,7 +1,8 @@
 const colors = ["rouge", "bleu", "vert", "jaune"];
 const secretCombinaison = ["rouge", "bleu"];
-//console.log(colors);
-//console.log(secretCombinaison);
+
+// console.log(colors); // Vérification des couleurs possibles
+// console.log(secretCombinaison); // Vérification de la combinaison secrète
 
 function isValidGuess(guess) {
   if (guess.length !== secretCombinaison.length) {
@@ -10,6 +11,14 @@ function isValidGuess(guess) {
   return guess.every((color) => colors.includes(color));
 }
 
-console.log(isValidGuess(["rouge", "bleu"]));
-console.log(isValidGuess(["rouge, noir"]));
-console.log(isValidGuess(["rouge"]));
+// Test de la fonction isValidGuess
+// console.log(isValidGuess(["rouge", "bleu"])); // true
+// console.log(isValidGuess(["rouge", "noir"])); // false
+// console.log(isValidGuess(["rouge"])); // false
+
+function isCorrectCombinaison(guess) {
+  return guess.every((color, index) => color === secretCombinaison[index]);
+}
+
+console.log(isCorrectCombinaison(["rouge", "bleu"])); // true
+console.log(isCorrectCombinaison(["bleu", "rouge"])); // false
